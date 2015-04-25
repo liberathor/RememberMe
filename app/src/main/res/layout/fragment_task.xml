@@ -1,7 +1,48 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.android.rememberme.app.TaskFragment">
+              tools:context="com.android.rememberme.app.TaskFragment" android:orientation="vertical">
 
-</FrameLayout>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nombre de la tarea"
+                android:id="@+id/textView"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextNombreTarea" android:layout_gravity="center_horizontal"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="Descripcion"
+                  android:id="@+id/textView2"/>
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/editTextDescripcion"
+                />
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Fechas"
+                    android:id="@+id/textView4"/>
+            <Button android:layout_width="0dp" android:layout_height="wrap_content" android:text="Fecha inicio"
+                    android:id="@+id/buttonInicio" android:layout_weight="1"/>
+            <Button android:layout_width="0dp" android:layout_height="wrap_content" android:text="Fecha fin"
+                    android:id="@+id/buttonFin" android:layout_weight="1"/>
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textAppearance="?android:attr/textAppearanceMedium" android:text="Accion"
+                  android:id="@+id/textView5"/>
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:id="@+id/editTextIntento"/>
+    </LinearLayout>
+</LinearLayout>
