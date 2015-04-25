@@ -10,10 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.rememberme.app.models.TaskModel;
 
-public class MainActivity extends ActionBarActivity implements TaskFragment.OnFragmentInteractionListener {
+
+public class MainActivity extends ActionBarActivity implements OnFragmentInteractionListener {
+    private static final String FRAGMENT_MAP = "fragmentMaps";
+    private static final String FRAGMENT_LIST = "fragmentList";
+    private static final String FRAGMENT_Task = "fragmentTask";
     private Fragment mFragment;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +33,18 @@ public class MainActivity extends ActionBarActivity implements TaskFragment.OnFr
     }
 
 
-    public void addFragment(Fragment fragment) {
-        if (mFragment != null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-        }
-        mFragment = fragment;
+    public void addFragment(String fragmentName) {
+
     }
 
+    public void removeFragment(String fragment) {
+
+    }
+
+
+
     public void onCLickButtonNewWork(View view) {
-        addFragment(new TaskFragment());
+        addFragment(FRAGMENT_Task);
     }
 
     @Override
@@ -66,6 +73,13 @@ public class MainActivity extends ActionBarActivity implements TaskFragment.OnFr
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    @Override
+    public void onSaveDate(TaskModel taskModel) {
+
+
+    }
+
 
     /**
      * A placeholder fragment containing a simple view.
