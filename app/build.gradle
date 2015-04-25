@@ -14,16 +14,14 @@ repositories {
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "22.0.0"
-
+    buildToolsVersion '22.0.1'
     defaultConfig {
         applicationId "com.android.rememberme.app"
-        minSdkVersion 9
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
@@ -33,6 +31,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 

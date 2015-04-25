@@ -1,13 +1,19 @@
 package com.android.rememberme.app;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements TaskFragment.OnFragmentInteractionListener {
     private Fragment mFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +25,20 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, mFragment)
                     .commit();
         }
+
     }
 
+
+    public void addFragment(Fragment fragment) {
+        if (mFragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+        }
+        mFragment = fragment;
+    }
+
+    public void onCLickButtonNewWork(View view) {
+        addFragment(new TaskFragment());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,6 +60,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     /**
