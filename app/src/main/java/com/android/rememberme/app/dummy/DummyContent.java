@@ -1,5 +1,7 @@
 package com.android.rememberme.app.dummy;
 
+import com.android.rememberme.app.models.TaskModel;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,40 +18,24 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
+    public static List<TaskModel> ITEMS = new ArrayList<TaskModel>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
+    public static Map<String, TaskModel> ITEM_MAP = new HashMap<String, TaskModel>();
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
+        addItem(new TaskModel("Tarea 1", "Descripcion", "01/01/2015", "01/01/2016", null));
+        addItem(new TaskModel("Tarea 3", "Descripcion", "01/01/2015", "01/01/2016", null));
+        addItem(new TaskModel("Tarea 4", "Descripcion", "01/01/2015", "01/01/2016", null));
+        addItem(new TaskModel("Tarea 5", "Descripcion", "01/01/2015", "01/01/2016", null));
     }
 
-    private static void addItem(DummyItem item) {
+    private static void addItem(TaskModel item) {
+        item.setId(ITEMS.size());
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
-    }
-
-    /**
-     * A dummy item representing a piece of content.
-     */
-    public static class DummyItem {
-        public String id;
-        public String content;
-
-        public DummyItem(String id, String content) {
-            this.id = id;
-            this.content = content;
-        }
-
-        @Override
-        public String toString() {
-            return content;
-        }
+        ITEM_MAP.put(item.getName(), item);
     }
 }
